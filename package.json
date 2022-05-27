@@ -5,7 +5,11 @@
   "main": "index.js",
   "author": "Anthony Glatt",
   "license": "MIT",
+  "scripts": {
+    "dev": "webpack serve"
+  },
   "dependencies": {
+    "preact": "^10.7.2",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
