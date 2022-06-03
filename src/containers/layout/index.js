@@ -1,2 +1,12 @@
 import React from "react";
-import
+import { Outlet } from "react-router-dom";
+import Navi from 'src/components/navi';
+
+const AppLayout = () => (
+    <>
+        <Navi />
+        <Outlet />
+    </>
+);
+
+export default AppLayout;
