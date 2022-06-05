@@ -1,2 +1,6 @@
 # Pokedex
-A react pwa pokedex
+
+> A react / mobx progressive web app
+
+### Get Started
+
