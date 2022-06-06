@@ -1,7 +1,8 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
-import AppLayout from "src/containers/layout";
-
+import AppLayout from "../containers/layout";
+import HomePageWithStore from "../containers/home";
+const Users = () => {<div>hi</div>};
 /**
  * The primary router
  * 
@@ -9,17 +10,17 @@ import AppLayout from "src/containers/layout";
  * @memberof router
  * @returns {React.Component}
  */
-
 const Router = () => {
     return (
         <Routes>
-            <Route path='/login' element={}/>
+            {/* <Route path='/login' element={}/> */}
             
             <Route path='/' element={<AppLayout />}>
-                <Route index element={<HomePage />}/>
+                <Route index element={<HomePageWithStore />}/>
+                <Route path='users' element={<Users />}/>
             </Route>
 
-            <Route path='*' element={}/>
+            {/* <Route path='*' element={}/> */}
         </Routes>
     );
 };

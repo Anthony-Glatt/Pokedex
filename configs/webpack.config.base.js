@@ -9,7 +9,7 @@ const rImage = /\.(png|jp(e*)g|svg|gif)$/;
 
 const devServerConfig = {
     hot: true,
-    open: true,
+    open: 'Google Chrome',
     port: 3000,
     host: 'localhost',
     historyApiFallback: true,
