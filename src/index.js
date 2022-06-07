@@ -8,16 +8,16 @@ import Router from 'src/router';
  * @returns {React.Component} The Main application component
  */
 const MainApp = () => {
-    return (
-        <StoreProvider>
-            <BrowserRouter>
-                <Router />
-            </BrowserRouter>
-        </StoreProvider>
-    );
+  return (
+    <StoreProvider>
+      <BrowserRouter>
+        <Router />  
+      </BrowserRouter>
+    </StoreProvider>
+  );
 };
 
 ReactDOM.render(
-    <MainApp />,
-    document.getElementById('root')
+  <MainApp />,
+  document.getElementById('root')
 );

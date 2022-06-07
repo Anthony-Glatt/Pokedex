@@ -1,8 +1,21 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import AppLayout from "../containers/layout";
-import HomePageWithStore from "../containers/home";
-const Users = () => {<div>hi</div>};
+// import HomePageWithStore from "../containers/home";
+import PokemonPage from "../containers/pokemon";
+import NoPage from "../containers/noPage";
+
+const withSuspense = (Component) => (
+  function componentWithSuspense(props) {
+    return (
+      <Suspense fallback={<>...</>}>
+        <Component {...props} />
+      </Suspense>
+    )
+  }
+);
+
+const Home = withSuspense(React.lazy(() => import('src/containers/home')));
 /**
  * The primary router
  * 
@@ -11,18 +24,15 @@ const Users = () => {<div>hi</div>};
  * @returns {React.Component}
  */
 const Router = () => {
-    return (
-        <Routes>
-            {/* <Route path='/login' element={}/> */}
-            
-            <Route path='/' element={<AppLayout />}>
-                <Route index element={<HomePageWithStore />}/>
-                <Route path='users' element={<Users />}/>
-            </Route>
-
-            {/* <Route path='*' element={}/> */}
-        </Routes>
-    );
+  return (
+    <Routes>
+      <Route path='/' element={<AppLayout />}>
+        <Route index element={<Home />} />
+        <Route path='pokemon' element={<PokemonPage />} />
+        <Route path='*' element={<NoPage />} />
+      </Route>
+    </Routes>
+  );
 };
 
 export default Router;
