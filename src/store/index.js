@@ -27,6 +27,9 @@ class InvalidStoreSliceException {
     }
 }
 
+const pick = (obj, arr) =>
+  arr.reduce((acc, record) => (record in obj && (acc[record]), acc), {});
+
 /**
  * The store context for React
  * 

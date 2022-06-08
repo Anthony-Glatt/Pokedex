@@ -8,6 +8,9 @@ const Navi = () => {
         <li className="navi__item">
           <NavLink to='/'>Home</NavLink>
         </li>
+        <li className="navi__item">
+          <NavLink to='/pokemon'>Pokemon</NavLink>
+        </li>
       </ul>
     </nav>
   );
