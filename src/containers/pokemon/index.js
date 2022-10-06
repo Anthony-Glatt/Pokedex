@@ -3,7 +3,7 @@ import { withStore } from "src/store";
 
 export const PokemonPage = ({store}) => {
   const { pokemon } = store;
-  console.log(pokemon);
+
   useEffect(() => {
     if(store) {
       pokemon.getPokemon();

@@ -4,13 +4,15 @@ import React, { useContext, createContext } from "react";
 import { PropTypes } from "prop-types";
 import { observer } from 'mobx-react';
 import PokemonStore from './pokemon';
+import ThemeStore from "./theme";
 
 /**
  * @private
  * @memberof store
  */
 const _store = {
-    pokemon: new PokemonStore(),
+  pokemon: new PokemonStore(),
+  theme: new ThemeStore(),
 };
 
 /**
@@ -22,9 +24,9 @@ const _store = {
  * @param {string} message The exception message
  */
 class InvalidStoreSliceException {
-    constructor(message) {
-        this.message = message;
-    }
+  constructor(message) {
+    this.message = message;
+  }
 }
 
 const pick = (obj, arr) =>
@@ -47,15 +49,14 @@ export const StoreContext = createContext(_store);
  * @returns {object} The StoreContext
  */
 export const useStore = (slice) => {
-    let store = useContext(StoreContext);
+  let store = useContext(StoreContext);
+  // if (slice.length > 0) {
+  //     store = pick(store, slice);
+  // }
 
-    if (slice.length > 0) {
-        store = pick(store, slice);
-    }
+  if (!store) throw new InvalidStoreSliceException(`Trying to access an invalid store: ${slice}`);
 
-    if (!store) throw new InvalidStoreSliceException(`Trying to access an invalid store: ${slice}`);
-
-    return store;
+  return store;
 };
 
 /**
@@ -68,18 +69,18 @@ export const useStore = (slice) => {
  * @returns {Function} Wrapped component with store and props
  */
 export const withStore = (WrappedComponent, slice) => {
-    const ObserverComponent = observer(WrappedComponent);
+  const ObserverComponent = observer(WrappedComponent);
 
-    return function WrapperComponent(props) {
-        if (!slice) slice = '';
-        const cleanStore = slice.replace(' ', '');
-        const splitStore = cleanStore.split(',');
-        const store = useStore(splitStore);
-
-        return (
-            <ObserverComponent store={store} {...props} />
-        );
-    };
+  return function WrapperComponent(props) {
+    if (!slice) slice = '';
+    const cleanStore = slice.replace(' ', '');
+    const splitStore = cleanStore.split(',');
+    const store = useStore(splitStore);
+  
+    return (
+    <ObserverComponent store={store} {...props} />
+    );
+  };
 };
 
 /**
@@ -91,23 +92,23 @@ export const withStore = (WrappedComponent, slice) => {
  * @returns {React.Component} The rendered component
  */
 export const StoreProvider = (props) => {
-    return (
-        <StoreContext.Provider value={_store}>
-            {props.children}
-        </StoreContext.Provider>
-    );
+  return (
+    <StoreContext.Provider value={_store}>
+      {props.children}
+    </StoreContext.Provider>
+  );
 };
 
 StoreProvider.propTypes = {
-    children: PropTypes.oneOfType([
-        PropTypes.node,
-        PropTypes.element,
-        PropTypes.string
-    ]),
+  children: PropTypes.oneOfType([
+    PropTypes.node,
+    PropTypes.element,
+    PropTypes.string
+  ]),
 };
 
 StoreProvider.defaultProps = {
-    children: null,
+  children: null,
 };
 
 export default StoreProvider;
