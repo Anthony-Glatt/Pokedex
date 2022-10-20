@@ -1,4 +1,12 @@
 .container {
   background-color: red;
-  width: 40px;
+  width: 60px;
+  height: 40px;
+  border-style: outset;
+  border-color: green;
+
+  &--wide {
+    @extend .container;
+    width: 80px;
+  }
 }

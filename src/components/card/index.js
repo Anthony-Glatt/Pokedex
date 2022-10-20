@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 
 const Card = ({
-  // onClick,
+  className,
+  onClick,
   title
 }) => {
   return (
-  <div className="container">
+  <div className={`container--${className}`} onClick={onClick}>
     <div className="">
       <div>{title}</div>
     </div>
@@ -16,12 +17,14 @@ const Card = ({
 };
 
 Card.propTypes = {
-  // onClick: PropTypes.func,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
   title: PropTypes.string,
 };
 
 Card.defaultProps = {
-  // onClick: () => {},
+  className: '',
+  onClick: () => {},
   title: '',
 };
 

@@ -3,6 +3,7 @@ import './styles.scss';
 import { withStore } from '../../store';
 import Card from '../../components/card';
 
+
 /**
  * @function
  * @memberof containers
@@ -15,6 +16,7 @@ export const HomePage = ({store}) => {
       <h1>Home</h1>
       <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
       <Card
+        className="wide"
         title="Pokemon"
       />
     </Fragment>
