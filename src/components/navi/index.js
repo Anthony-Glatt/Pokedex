@@ -12,8 +12,14 @@ const Navi = () => {
     <div className="container">
       <button onclick={ToggleClass} className="dropbtn">Dropdown</button>
         <div className={show ? "show" : "noShow"}>
-          <NavLink exact activeClassName="active" to='/'>Home</NavLink>
-          <NavLink activeClassName="active" to='/pokemon'>Pokemon</NavLink>
+          <ul>
+            <li>
+              <NavLink exact className={({ isActive }) => (isActive ? 'active' : 'inactive')} to='/'>Home</NavLink>
+            </li>
+            <li>
+              <NavLink Link className={({ isActive }) => (isActive ? 'active' : 'inactive')} to='/pokemon'>Pokemon</NavLink>
+            </li>
+          </ul>
         </div>
     </div>
   );
