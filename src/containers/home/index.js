@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import './styles.scss';
-import { withStore } from '../../store';
 import Card from '../../components/card';
 
 
@@ -9,20 +8,10 @@ import Card from '../../components/card';
  * @memberof containers
  * @returns {React.Component} The rendered component
  */
-export const HomePage = ({store}) => {
-  const { theme } = store;
+export const HomePage = () => {
   return (
     <Fragment>
       <h1>Home</h1>
-      <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
-      <Card
-        className="wide"
-        title="Pokemon"
-      />
     </Fragment>
   );
 };
-
-export const HomePageWithStore = withStore(HomePage, 'theme');
-
-export default HomePageWithStore;

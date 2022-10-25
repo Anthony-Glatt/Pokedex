@@ -1,4 +1,4 @@
-.container {
+.card {
   background-color: red;
   width: 60px;
   height: 40px;
@@ -6,7 +6,7 @@
   border-color: green;
 
   &--wide {
-    @extend .container;
+    @extend .card;
     width: 80px;
   }
 }

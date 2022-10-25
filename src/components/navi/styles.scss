@@ -1,20 +1,26 @@
 /* The container <div> - needed to position the dropdown content */
-.container {
+.navi {
   position: relative;
   display: inline-block;
 
   .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
+    width: 30px;
+    background-color: #186fb6;
+    color: #000;
+    padding: 8px;
+    font-size: 8px;
     border: none;
     cursor: pointer;
+
+    &:hover, :focus {
+      background-color: #114b7a;
+    }
+
+    &--active {
+      background-color: #830c0c;;
+    }
   }
 
-  .dropbtn:hover, .dropbtn:focus {
-    background-color: #2980B9;
-  }
 
   /* Dropdown Content (Hidden by Default) */
   .noShow {

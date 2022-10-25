@@ -8,7 +8,7 @@ const Card = ({
   title
 }) => {
   return (
-  <div className={`container--${className}`} onClick={onClick}>
+  <div className={`card--${className}`} onClick={onClick}>
     <div className="">
       <div>{title}</div>
     </div>

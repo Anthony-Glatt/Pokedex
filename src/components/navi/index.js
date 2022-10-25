@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './styles.scss';
+import { withStore } from '../../store';
+import { MenuIcon, ExitIcon } from '../../assets/icons/index';
 
-const Navi = () => {
+const Navi = ({store}) => {
   const [show, setShow] = useState(false);
+  const { theme } = store;
 
   const ToggleClass = () => {
     setShow(!show);
   };
+
   return (
-    <div className="container">
-      <button onclick={ToggleClass} className="dropbtn">Dropdown</button>
+    <div className="navi">
+      <div className={`dropbtn${show ? '--active' : ''}`} onclick={ToggleClass}>{show ? <ExitIcon /> : <MenuIcon />}</div>
         <div className={show ? "show" : "noShow"}>
           <ul>
             <li>
@@ -21,8 +25,11 @@ const Navi = () => {
             </li>
           </ul>
         </div>
+        <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
     </div>
   );
 };
 
-export default Navi;
+const NaviWithStore = withStore(Navi, 'theme');
+
+export default NaviWithStore;
