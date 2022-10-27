@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Navi from 'src/components/navi';
+import NaviWithStore from 'src/components/navi';
 
 const AppLayout = () => (
   <>
-    <Navi />
+    <NaviWithStore />
     <Outlet />
   </>
 );

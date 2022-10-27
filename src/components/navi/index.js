@@ -1,31 +1,21 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import './styles.scss';
-import { withStore } from '../../store';
-import { MenuIcon, ExitIcon } from '../../assets/icons/index';
+import React, { useEffect } from "react";
+import { withStore } from '../../store/index';
+import { NaviDesktop } from "./desktop";
+import { NaviMobile } from './mobile';
+// import { NaviDekstop } from './desktop';
 
-const Navi = ({store}) => {
-  const [show, setShow] = useState(false);
+export const Navi = ({store}) => {
   const { theme } = store;
 
-  const ToggleClass = () => {
-    setShow(!show);
-  };
+  const innerWidth = window.innerWidth;
 
+  useEffect(() => {
+    
+  }, [])
   return (
-    <div className="navi">
-      <div className={`dropbtn${show ? '--active' : ''}`} onclick={ToggleClass}>{show ? <ExitIcon /> : <MenuIcon />}</div>
-        <div className={show ? "show" : "noShow"}>
-          <ul>
-            <li>
-              <NavLink exact className={({ isActive }) => (isActive ? 'active' : 'inactive')} to='/'>Home</NavLink>
-            </li>
-            <li>
-              <NavLink Link className={({ isActive }) => (isActive ? 'active' : 'inactive')} to='/pokemon'>Pokemon</NavLink>
-            </li>
-          </ul>
-        </div>
-        <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
+    <div>
+      { (innerWidth < 650) ? <NaviMobile /> : <NaviDesktop />} 
+      <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
     </div>
   );
 };
