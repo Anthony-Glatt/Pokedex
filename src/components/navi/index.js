@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { withStore } from '../../store/index';
 import { NaviDesktop } from "./desktop";
 import { NaviMobile } from './mobile';
@@ -6,15 +6,24 @@ import { NaviMobile } from './mobile';
 
 export const Navi = ({store}) => {
   const { theme } = store;
+  const [size, setSize] = useState();
 
-  const innerWidth = window.innerWidth;
+  const resizeHandler = () => {
+    const width = window.innerWidth;
+    setSize(width);
+  };
 
   useEffect(() => {
-    
-  }, [])
+    window.addEventListener('resize', resizeHandler);
+
+    return () => {
+      window.removeEventListener('resize', resizeHandler);
+    };
+  }, []);
+
   return (
     <div>
-      { (innerWidth < 650) ? <NaviMobile /> : <NaviDesktop />} 
+      { (size < 650) ? <NaviMobile /> : <NaviDesktop />} 
       <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
     </div>
   );

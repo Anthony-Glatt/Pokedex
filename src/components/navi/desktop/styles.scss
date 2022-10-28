@@ -1,0 +1,21 @@
+.navi-desktop {
+
+  .navi-desktop--list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    background-color: black;
+    font-size: 32px;
+
+    .link {
+      margin-right: 32px;
+      color: #ffffff;
+
+      &--active {
+        @extend .link;
+        color: #747474;
+      }
+    }
+  }
+}
