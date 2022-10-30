@@ -2,6 +2,11 @@ import React from "react";
 import PropTypes from 'prop-types';
 import './styles.scss';
 
+/**
+ * @function
+ * @memberof components
+ * @returns The rendered component
+ */
 const Card = ({
   className,
   onClick,

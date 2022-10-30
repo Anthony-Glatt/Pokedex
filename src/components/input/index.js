@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
  * @param {string} props.placeholder Placeholder text for the input
  * @param {Function} props.onChange Function for input's onChange event
  * @param {string} props.value Value for the input element
- * @returns 
+ * @returns The rendered component
  */
 const Input = ({
   id,

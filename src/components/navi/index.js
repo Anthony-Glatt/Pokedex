@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { withStore } from '../../store/index';
+import Button from '../button';
 import { NaviDesktop } from "./desktop";
 import { NaviMobile } from './mobile';
-// import { NaviDekstop } from './desktop';
 
+/**
+ * @function
+ * @memberof components
+ * @returns The rendered component
+ */
 export const Navi = ({store}) => {
   const { theme } = store;
   const [size, setSize] = useState();
@@ -24,7 +29,7 @@ export const Navi = ({store}) => {
   return (
     <div>
       { (size < 650) ? <NaviMobile /> : <NaviDesktop />} 
-      <button onClick={() => theme.toggleTheme()}>{theme.theme}</button>
+      <Button onClick={() => theme.toggleTheme()}>{theme.theme}</Button>
     </div>
   );
 };

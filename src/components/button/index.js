@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
  * @param {object} props.className The button's className
  * @param {object} props.children The button's children
  * @param {Function} props.onClick Function for button's onClick event 
- * @returns 
+ * @returns The rendered component
  */
 const Button = ({
   id,
