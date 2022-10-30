@@ -23,6 +23,7 @@ class PokemonStore {
             reset: action,
             error: observable,
             pokemon: observable,
+            getPokemonList: action,
             getPokemon: action,
         });
     }
@@ -36,13 +37,13 @@ class PokemonStore {
         runInAction(() => {
             this.offset = 0;
         });
-        this.getPokemon();
+        this.getPokemonList();
     }
 
     /**
      * @function
      */
-    async getPokemon() {
+    async getPokemonList() {
         fetch(`https://pokeapi.co/api/v2/pokemon?limit=${this.limit}&offset=${this.offset * this.limit}`)
             .then(res => res.json())
             .then((res) => {
@@ -56,6 +57,20 @@ class PokemonStore {
                 this.error = err;
             });
     }
+
+    /**
+     * @function
+     */
+    async getPokemon(individual) {
+      fetch(`https://pokeapi.co/api/v2/pokemon/${individual}`)
+          .then(res => res.json())
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+              this.error = err;
+          });
+  }
 }
 
 export default PokemonStore;
