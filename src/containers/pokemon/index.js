@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { withStore } from "src/store";
-import InputField from '../../components/input';
+import Input from '../../components/input';
 import Button from '../../components/button';
 
 export const PokemonPage = ({store}) => {
@@ -9,6 +9,7 @@ export const PokemonPage = ({store}) => {
 
   const handleChange = (e) => {
     const { value } = e.target;
+    console.log(value);
     setInputValue(value);
   };
 
@@ -28,7 +29,7 @@ export const PokemonPage = ({store}) => {
       <header>
         <h1>Pokemon</h1>
       </header>
-      <InputField label={"Search"} placeholder={"Name"} handleChange={handleChange} />
+      <Input id={"search-input"} label={"Search"} placeholder={"Name"} onChange={handleChange} value={inputValue} />
       <Button children={'Search'} onClick={() => handleClick(inputValue)} />
       <div>
         <pre>
