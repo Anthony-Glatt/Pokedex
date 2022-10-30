@@ -29,7 +29,7 @@ export const PokemonPage = ({store}) => {
         <h1>Pokemon</h1>
       </header>
       <InputField label={"Search"} placeholder={"Name"} handleChange={handleChange} />
-      <Button handleClick={() => handleClick(inputValue)} />
+      <Button children={'Search'} onClick={() => handleClick(inputValue)} />
       <div>
         <pre>
           {JSON.stringify(pokemon.pokemon, null, 2)}
