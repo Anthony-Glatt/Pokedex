@@ -1,6 +1,8 @@
 # Pokedex
 
-> A react / mobx progressive web app
+A react / mobx Pokedex project. This project is being designed with the intention of being a progressive web app.
+
+PokeApi is utilized for Pokemon data.
 
 ### Get Started
 
