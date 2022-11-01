@@ -8,6 +8,7 @@ export const NaviDesktop = () => {
         <div className="navi-desktop--list">
           <NavLink exact className={({ isActive }) => "link" + (isActive ? '--active' : '')} to='/'>Home</NavLink>
           <NavLink Link className={({ isActive }) => "link" + (isActive ? '--active' : '')} to='/pokemon'>Pokemon</NavLink>
+          <NavLink Link className={({ isActive }) => "link" + (isActive ? '--active' : '')} to='/places'>Places</NavLink>
         </div>
     </div>
   );

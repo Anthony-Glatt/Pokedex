@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route } from 'react-router-dom';
 import AppLayout from "src/containers/layout";
-import { HomePage } from "src/containers/home";
+import HomePage from "src/containers/home";
 import PokemonPageWithStore from "../containers/pokemon";
+import { PlacesPage } from "../containers/places";
 import NoPage from "../containers/noPage";
 
 // const withSuspense = (Component) => (
@@ -29,6 +30,7 @@ const Router = () => {
       <Route path='/' element={<AppLayout />}>
         <Route index element={<HomePage />} />
         <Route path='pokemon' element={<PokemonPageWithStore />} />
+        <Route path='places' element={<PlacesPage />} />
         <Route path='*' element={<NoPage />} />
       </Route>
     </Routes>

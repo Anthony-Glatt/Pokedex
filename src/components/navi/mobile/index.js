@@ -21,6 +21,9 @@ export const NaviMobile = () => {
             <li>
               <NavLink Link className={({ isActive }) => (isActive ? 'active' : 'inactive')} to='/pokemon'>Pokemon</NavLink>
             </li>
+            <li>
+              <NavLink Link className={({ isActive }) => "link" + (isActive ? '--active' : '')} to='/places'>Places</NavLink>
+            </li>
           </ul>
         </div>
     </div>
